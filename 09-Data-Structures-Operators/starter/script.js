@@ -47,27 +47,275 @@ const restaurant = {
   },
 };
 
+// Lesson 15 : Strings 3
+
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Adolfo Villalobos'.split(' '));
+
+// const [firstName, lastName] = 'Adolfo Villalobos'.split(' ');
+
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
+
+// const capitalizeName = function (name) {
+//   const arr = name.split(' ');
+//   const arrUpper = [];
+//   for (const n of arr) {
+//     arrUpper.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(arrUpper.join(' '));
+// };
+
+// const passenger = 'adolfo manuel villalobos vega';
+// capitalizeName(passenger);
+
+// // Padding
+// const message = 'Go to gate 23!';
+// console.log(message.length);
+// console.log(message.padStart(25, '+').padEnd(35, '+'));
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
+
+// console.log(maskCreditCard(1387419837));
+// console.log(maskCreditCard('1983274183740'));
+
+// // Repeat
+
+// const message2 = 'Bad weather... All departures Delayed...';
+// console.log(message2.repeat(5));
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${'🛩'.repeat(n)}`);
+// };
+
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
+
+// // Lesson 14: Strings 2
+// const airline = 'TAP Air Portugal';
+
+// console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+
+// const passenger = 'aDoLF';
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+
+// // Comparing emails
+
+// const emails = 'hello@adolf.io';
+// const loginEmails = 'Hello@Adolf.io \n';
+
+// const lowerEmail = loginEmails.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+// const normEmail = loginEmails.toLowerCase().trim();
+// console.log(emails === normEmail);
+
+// // Replacing
+
+// const priceGB = '288,97E';
+// const priceUS = priceGB.replace('E', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement =
+//   'All passengers come to boarding door 3. Boarding door 23!';
+
+// console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// // Booleans
+
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.startsWith('Air'));
+
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the NEW Airbus family');
+// }
+
+// // Practice exercise
+
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase().trim();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are not allowed on board!');
+//   } else {
+//     console.log('Welcome aboard!');
+//   }
+// };
+
+// checkBaggage('I have a laptop, some food and a pocket Knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Got some snacks and a gun for protection');
+
+// Lesson 13: Strings 1
+
+// const arline = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+
+// console.log(airline.length);
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 9));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') {
+//     console.log('You got the middle seat :(');
+//   } else {
+//     console.log('You got lucky :))');
+//   }
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+// Lesson 12:
+
+// Data Sources:
+/// . 1. Program itself
+/// . 2. From UI
+/// . 3. External source: API or database.
+
+// We use data structures to collect data.
+
+// Lesson 11 : Maps 2
+
+// const question = new Map([
+//   ['question', 'What is the best programming language in the world'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct'],
+//   [false, 'Try Again!'],
+// ]);
+// console.log(question);
+
+// const hoursMap = new Map(Object.entries(hours));
+// console.log(hoursMap);
+
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+
+// const answer = 3;
+// console.log(question.get(answer === question.get('correct')));
+// // Convert map to array
+
+// console.log([...question]);
+
+// LEsson 10 : Maps
+
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// console.log(rest.set(2, 'Lisbon, Portugal'));
+
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('closed', 23)
+//   .set(true, 'We are open :D')
+//   .set(false, 'We are closed :(');
+
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('closed')));
+
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+
+// const arr = [1, 2];
+// rest.set(arr, 'Test');
+// console.log(rest);
+// console.log(rest.size);
+
+// console.log(rest.get(arr));
+
+// // Lesson 9 : sets
+// const ordersSet = new Set([
+//   'Risotto',
+//   'Pizza',
+//   'Pasta',
+//   'Pizza',
+//   'Pasta',
+//   'Pasta',
+// ]);
+
+// console.log(new Set('Adolfo'));
+// console.log(ordersSet);
+
+// console.log(ordersSet.has('Pizza'));
+// console.log(ordersSet.has('Pasta'));
+
+// ordersSet.add('Garlic Bread');
+// console.log(ordersSet);
+// ordersSet.add('Garlic Bread');
+// console.log(ordersSet);
+
+// ordersSet.delete('Risotto');
+// console.log(ordersSet);
+
+// for (const order of ordersSet) console.log(order);
+
+// //Example
+
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+
 // Lesson 8:
 
-const properties = Object.keys(hours);
-console.log(properties);
+// const properties = Object.keys(hours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
+// let openStr = `We are open on ${properties.length} days: `;
 
-for (const day of properties) {
-  openStr += `${day}, `;
-}
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
 
-console.log(openStr);
+// console.log(openStr);
 
-// Property values
+// // Property values
 
-const values = Object.values(hours);
-console.log(values);
+// const values = Object.values(hours);
+// console.log(values);
 
-for (const [key, { open, close }] of Object.entries(hours)) {
-  console.log(`On ${key} we open at ${open} and close at ${close}.`);
-}
+// for (const [key, { open, close }] of Object.entries(hours)) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}.`);
+// }
 
 // // Lesson 7: Optional chaining
 // console.log(restaurant?.hours.mon?.open);

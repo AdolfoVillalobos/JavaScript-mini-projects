@@ -487,6 +487,9 @@ const game = {
   },
 };
 
+const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Pasta', 'Pasta']);
+console.log(ordersSet);
+
 /*
 // 1.
 for (const [i, player] of game.scored.entries())

@@ -39,37 +39,102 @@ const game = {
     team2: 6.5,
   },
 };
-/// Challenge 2
 
-// P1
-for (const [i, el] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${el}`);
-}
+// Challenge 4
 
-// P2
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
 
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) {
-  average += odd;
-}
-average /= odds.length;
-console.log(average);
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
 
-// P3
+  toCamelCase(rows);
+});
+// Challenge 4
 
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr}: ${odd}`);
-}
+const toCamelCase = function (underScoreWords) {
+  const maxLength = Math.max(...underScoreWords.map(w => w.length)) + 2;
+  for (const [i, el] of underScoreWords.entries()) {
+    const [first, last] = el.toLowerCase().trim().split('_');
+    const elCorrect = first + last[0].toUpperCase() + last.slice(1);
+    const elCorrectPadded =
+      elCorrect.padEnd(maxLength, ' ') + '✅'.repeat(i + 1);
+    console.log(elCorrectPadded);
+  }
+};
 
-// P4
+// /// Challenge 3
 
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log(scorers);
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
+
+// console.log(gameEvents);
+
+// // P1
+
+// const events = [...new Set([...gameEvents.values()])];
+// console.log(events);
+
+// // P2
+
+// gameEvents.delete(64);
+// console.log(gameEvents);
+
+// // P3
+// const duration = [...gameEvents.keys()].pop();
+// const eventsPerGame = duration / gameEvents.size;
+// console.log(`An event happened, on average, every ${eventsPerGame} minutes.`);
+
+// // P4
+
+// for (const [minute, event] of gameEvents) {
+//   const half = minute <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${minute}: ${event}`);
+// }
+
+// /// Challenge 2
+
+// // P1
+// for (const [i, el] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1}: ${el}`);
+// }
+
+// // P2
+
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) {
+//   average += odd;
+// }
+// average /= odds.length;
+// console.log(average);
+
+// // P3
+
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr}: ${odd}`);
+// }
+
+// // P4
+
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);
 
 /// Challenge 1
 
