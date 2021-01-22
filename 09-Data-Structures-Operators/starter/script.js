@@ -47,24 +47,46 @@ const restaurant = {
   },
 };
 
-// Lesson 7: Optional chaining
-console.log(restaurant?.hours.mon?.open);
-console.log(restaurant?.hours.fri?.open);
+// Lesson 8:
 
-// const days = ['mon', ' tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-// for (const day of days) {
-//   const open = restaurant.hours[day]?.open ?? 'closed';
-//   console.log(`On ${day} we open at ${open}.`);
-// }
+const properties = Object.keys(hours);
+console.log(properties);
 
-// Methods
+let openStr = `We are open on ${properties.length} days: `;
 
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+for (const day of properties) {
+  openStr += `${day}, `;
+}
 
-// Arrays
+console.log(openStr);
 
-const users = []; //= [{ name: 'Jonas', email: 'hello@jonas' }];
-console.log(users[0]?.name ?? 'User array empty');
+// Property values
+
+const values = Object.values(hours);
+console.log(values);
+
+for (const [key, { open, close }] of Object.entries(hours)) {
+  console.log(`On ${key} we open at ${open} and close at ${close}.`);
+}
+
+// // Lesson 7: Optional chaining
+// console.log(restaurant?.hours.mon?.open);
+// console.log(restaurant?.hours.fri?.open);
+
+// // const days = ['mon', ' tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// // for (const day of days) {
+// //   const open = restaurant.hours[day]?.open ?? 'closed';
+// //   console.log(`On ${day} we open at ${open}.`);
+// // }
+
+// // Methods
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+// // Arrays
+
+// const users = []; //= [{ name: 'Jonas', email: 'hello@jonas' }];
+// console.log(users[0]?.name ?? 'User array empty');
 
 // // Lesson 6: For-of.
 
