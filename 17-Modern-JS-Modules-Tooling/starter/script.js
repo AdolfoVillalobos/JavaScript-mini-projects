@@ -14,32 +14,51 @@
 // add('pizza', 2);
 // add('pizza', 2);
 
-// console.log(cart);
+// // console.log(cart);
 
-const ShoppingCart2 = (function () {
-  const cart = [];
-  const shippingCost = 10;
-  const totalPrice = 237;
-  const totalQuantity = 23;
+// const ShoppingCart2 = (function () {
+//   const cart = [];
+//   const shippingCost = 10;
+//   const totalPrice = 237;
+//   const totalQuantity = 23;
 
-  const addToCart = function (product, quantity) {
-    cart.push({ product, quantity });
-    console.log(`Product ${product} (${quantity}) was added to the cart.`);
-  };
+//   const addToCart = function (product, quantity) {
+//     cart.push({ product, quantity });
+//     console.log(`Product ${product} (${quantity}) was added to the cart.`);
+//   };
 
-  const orderStock = function (product, quantity) {
-    cart.push({ product, quantity });
-    console.log(`Product ${product} (${quantity}) ordered from supplier.`);
-  };
+//   const orderStock = function (product, quantity) {
+//     cart.push({ product, quantity });
+//     console.log(`Product ${product} (${quantity}) ordered from supplier.`);
+//   };
 
-  return {
-    addToCart,
-    cart,
-    totalPrice,
-    totalQuantity,
-  };
-})();
+//   return {
+//     addToCart,
+//     cart,
+//     totalPrice,
+//     totalQuantity,
+//   };
+// })();
 
-ShoppingCart2.addToCart('apple', 4);
-ShoppingCart2.addToCart('pizza', 2);
-console.log(ShoppingCart2);
+// ShoppingCart2.addToCart('apple', 4);
+// ShoppingCart2.addToCart('pizza', 2);
+// console.log(ShoppingCart2);
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 4 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+
+const stateDeepClone = cloneDeep(state);
+state.user.loggedIn = false;
+
+console.log(stateClone);
+
+console.log(stateDeepClone);
