@@ -1,45 +1,39 @@
-var sc = [
+const sc = [
   { product: 'bread', quantity: 6 },
   { product: 'pizza', quantity: 2 },
   { product: 'milk', quantity: 4 },
   { product: 'water', quantity: 10 },
 ];
 
-var allow = {
+const allow = {
   lisbon: 5,
   others: 7,
 };
 
-var description = '';
-
-var check = function (city) {
+const checkLimits = function (city) {
   if (sc.length > 0) {
-    var allowed;
-    if (city == 'lisbon') {
-      allowed = allow.lisbon;
-    } else {
-      allowed = allow.others;
-    }
+    const allowed = city === 'lisbon' ? allow.lisbon : allow.others;
 
     for (item of sc) {
       if (item.quantity > allowed) item.quantity = allowed;
     }
   }
 };
-check('lisbon');
+
+checkLimits('lisbon');
 console.log(sc);
 
-var createDescription = function () {
-  var first = sc[0];
-  var p = first.product;
-  var q = first.quantity;
+const createDescription = function () {
+  const first = sc[0];
+  const p = first.product;
+  const q = first.quantity;
 
-  if (sc.length > 1) {
-    description = 'Order with ' + q + ' ' + p + ', etc...';
-  } else {
-    description = 'Order with ' + q + ' ' + p + '.';
-  }
+  const description = `Order with ${q} ${p} ${
+    sc.length > 1 ? ', etc...' : '.'
+  }`;
+
+  return description;
 };
-createDescription();
+const description = createDescription();
 
 console.log(description);
